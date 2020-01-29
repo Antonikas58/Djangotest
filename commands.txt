@@ -1,0 +1,36 @@
+django-admin startproject xxxxxx            create project
+python manage.py runserver                  run local server to test
+
+
+(move app to other folder)------------------------------------------------------------
+python manage.py startapp xxxx     will create app in this directory and we need to adjust settings.py code:
+
+import os, sys
+
+PROJECT_ROOT = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps')) 
+
+
+(migration create)--------------------------------------------------------------------
+
+add app to settings.py INSTALLED_APPS and then type
+
+ python manage.py makemigrations xxxxx 
+ python manage.py migrate
+
+(check sql code)
+ python manage.py sqlmigrate articles xxxxx
+
+
+(models)------------------------------------------------------------------------------
+python manage.py shell
+
+from  xxx.models import xxx,xxx,xxx   get all models from app xxx
+
+a = xxx.objects.get(id = xxx)         get all entries with id = xxx
+
+a.xxx_set.all()                       get by key
+ 
+
+(admin panel)------------------------------------------------------------------
+python manage.py createsuperuser
