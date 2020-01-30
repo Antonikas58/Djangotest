@@ -4,11 +4,17 @@ python manage.py runserver                  run local server to test
 
 (move app to other folder)------------------------------------------------------------
 python manage.py startapp xxxx     will create app in this directory and we need to adjust settings.py code:
-
+then we move this folder to our project folder
 import os, sys
 
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps')) 
+
+
+(move templates to other folder)-----------------------------------------------------
+ in settings we add to DIRS 
+create templates folder in project folder
+os.path.join(PROJECT_ROOT,'templates')
 
 
 (migration create)--------------------------------------------------------------------
@@ -28,7 +34,7 @@ python manage.py shell
 from  xxx.models import xxx,xxx,xxx   get all models from app xxx
 
 a = xxx.objects.get(id = xxx)         get all entries with id = xxx
-
+a = xxx.objects.order_by('xxx')       get all entries ordered by some field
 a.xxx_set.all()                       get by key
  
 
